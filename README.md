@@ -9,4 +9,5 @@ Phase 3 : J'ai rédigé un scénario de test visant à vérifier la disponibilit
 https://github.com/Wardkh9/TestTechniqueMaisonDuWeb/tree/d5c9b684c7d5445310a96357f03f7d49b7955d16/Phase%203
 
 Phase 4 : J'ai écrit une requête SQL permettant de retrouver la disponibilité d'un produit en fonction de son nom, de sa variante et du dépôt spécifié.
+
 https://github.com/Wardkh9/TestTechniqueMaisonDuWeb/tree/881b18f70319739fa24e139e8cfdf66ed32103b9/Phase%204

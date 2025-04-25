@@ -1,0 +1,17 @@
+// Fixed test by parsing response as text
+pm.test("Statut de la réponse est 401", function () {
+    pm.response.to.have.status(401);
+});
+
+
+pm.test("Vérifier la disponibilité du produit", function () {
+    const quantity = pm.response.text();
+
+    if (quantity > 0) {
+        console.log(" Produit DISPONIBLE dans le dépôt.");
+        pm.environment.set("product_available", true);
+    } else {
+        console.log(" Produit NON DISPONIBLE dans le dépôt.");
+        pm.environment.set("product_available", false);
+    }
+});

@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "26503c16-0315-4d86-945f-2c2c2bd56cf0",
+		"name": "MDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42917869"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Fixed test by parsing response as text\r",
+							"pm.test(\"Statut de la réponse est 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Vérifier la disponibilité du produit\", function () {\r",
+							"    const quantity = pm.response.text();\r",
+							"\r",
+							"    if (quantity > 0) {\r",
+							"        console.log(\" Produit DISPONIBLE dans le dépôt.\");\r",
+							"        pm.environment.set(\"product_available\", true);\r",
+							"    } else {\r",
+							"        console.log(\" Produit NON DISPONIBLE dans le dépôt.\");\r",
+							"        pm.environment.set(\"product_available\", false);\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": " maisonduweb123 ",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "TN25000000",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://recrutement.arvea-test.ovh/stock/getQuantity?product_config_id=20110&stock_type=depot&depot_id=2",
+					"protocol": "https",
+					"host": [
+						"recrutement",
+						"arvea-test",
+						"ovh"
+					],
+					"path": [
+						"stock",
+						"getQuantity"
+					],
+					"query": [
+						{
+							"key": "product_config_id",
+							"value": "20110",
+							"description": "Exemple d’ID produit"
+						},
+						{
+							"key": "stock_type",
+							"value": "depot",
+							"description": "Toujours \"depot\" pour ce cas"
+						},
+						{
+							"key": "depot_id",
+							"value": "2",
+							"description": "Exemple d’ID dépôt"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
